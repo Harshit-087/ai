@@ -17,7 +17,7 @@ function ResumeClassifier() {
     setLoading(true); 
     try {
       const response = await axios.post(
-        'http://localhost:3001/api/classify',
+        'https://ai-tx09.onrender.com/api/classify',
         [{ text: input }],
         {
           headers: { 'Content-Type': 'application/json' },

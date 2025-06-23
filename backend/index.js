@@ -6,10 +6,14 @@ const app = express();
 const PYTHON_API_URL = 'http://localhost:8000'; 
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin:"https://ai-black-omega.vercel.app/",
+  credentials:true
+}));
+
 app.use(express.json());
 
-
+ 
 app.post('/api/classify', async (req, res) => {
   try {
     console.log('Received request:', req.body); 
