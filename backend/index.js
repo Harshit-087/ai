@@ -31,7 +31,7 @@ app.post('/api/classify', async (req, res) => {
 
     // Call Python API
     const response = await axios.post(
-      `${PYTHON_API_URL}/Admin`,
+      `${PYTHON_API_URL}/classify`,
       payload,
       {
         headers: {
