@@ -1,9 +1,11 @@
 const express = require('express');
 const axios = require('axios');
 const cors = require('cors');
+const PORT = process.env.PORT
 
 const app = express();
-const PYTHON_API_URL = 'http://localhost:8000'; 
+
+const PYTHON_API_URL = process.env.PYTHON_API_URL;
 
 // Middleware
 app.use(cors({
@@ -29,7 +31,7 @@ app.post('/api/classify', async (req, res) => {
 
     // Call Python API
     const response = await axios.post(
-      `${PYTHON_API_URL}/classify`,
+      `${PYTHON_API_URL}/Admin`,
       payload,
       {
         headers: {
@@ -54,7 +56,7 @@ app.post('/api/classify', async (req, res) => {
 });
 
 // Start server
-const PORT = 3001;
+// const PORT = 3001;
 app.listen(PORT, () => {
   console.log(`Node proxy running on http://localhost:${PORT}`);
 });
